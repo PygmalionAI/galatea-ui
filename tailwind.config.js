@@ -5,7 +5,7 @@ module.exports = {
     extend: {
       colors: {
         background: "#0d1017",
-        "neongosling": {
+        purple: {
           50: "#c8aad4",
           100: "#c49acf",
           200: "#bf80c8",
