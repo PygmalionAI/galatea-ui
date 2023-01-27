@@ -21,10 +21,10 @@ const Message: Component<MessageProps> = (props) => (
         <b class="text-white">{props.speaker.name}</b>
         <span
           class="ml-2 text-sm text-white/25"
-          // TODO(11b): Use datefns here to convert the Date object coming in
-          // from the props into a proper time string.
-        >
-          8:07 PM
+          // Used Intl.DateTimeFormat instead of datefns
+          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+          >
+          {new Intl.DateTimeFormat('en-US', {dateStyle: 'short', timeStyle: 'short'}).format(props.timestamp)}
         </span>
       </span>
       <div
