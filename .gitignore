@@ -2,4 +2,4 @@
 /dist
 /node_modules
 .pnpm-debug.log
-/src/pages/Chat/monks.ts
+/src/pages/Chat/mocks.ts
