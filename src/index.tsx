@@ -7,8 +7,7 @@ import NavBar from "./shared/NavBar";
 
 const ChatPage = lazy(() => import("./pages/Chat"));
 const CharacterSettings = lazy(() => import("./pages/CharacterSettings"));
-
-const Home: Component = () => <h1>haven't made a homepage</h1>;
+const Home = lazy(() => import("./pages/Home"));
 
 const App: Component = () => (
   <Router>
