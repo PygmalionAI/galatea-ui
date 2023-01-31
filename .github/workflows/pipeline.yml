@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-		
+        
       - name: Install Node
         uses: actions/setup-node@v3
         with:
@@ -27,7 +27,7 @@ jobs:
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 		  
       - name: Install Dependencies
-          run: pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       
       - name: Quality Control - Lint
         run: pnpm run lint
