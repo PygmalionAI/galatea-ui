@@ -7,10 +7,10 @@ const schemaNameToClass: Record<ButtonSchema, string> = {
   secondary: "btn-secondary",
 };
 
-const Button: Component<{ children: JSX.Element; schema?: ButtonSchema }> = (
+const Button: Component<{ children: JSX.Element; schema?: ButtonSchema; class?:string }> = (
   props
 ) => (
-  <button class={schemaNameToClass[props.schema || "primary"]}>
+  <button class={schemaNameToClass[props.schema || "primary"] + (props.class ? ` ${props.class}` : '')}>
     {props.children}
   </button>
 );
