@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build and Deploy to S3
+    name: Pipeline
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -26,14 +26,14 @@ jobs:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 		  
-	  - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
-		
-	  - name: Quality Control - Lint
-		run: pnpm run lint
-	  
-	  - name: Quality Control - Style
-		run: pnpm run style
-	  
-	  - name: Quality Control - TypeCheck
-		run: pnpm run typecheck
+      - name: Install Dependencies
+          run: pnpm install --frozen-lockfile
+      
+      - name: Quality Control - Lint
+        run: pnpm run lint
+      
+      - name: Quality Control - Style
+        run: pnpm run style
+      
+      - name: Quality Control - TypeCheck
+        run: pnpm run typecheck
