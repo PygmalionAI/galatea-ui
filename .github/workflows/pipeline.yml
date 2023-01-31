@@ -17,12 +17,12 @@ jobs:
       - name: Install Performant Node Package Manager (NPM)
         uses: pnpm/action-setup@v2
         with:
-          version: 6.0.2
+          version: 7.2.1
 
       - name: Install Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '18.4.0'
           cache: 'pnpm'
 
       - name: Cache Dependencies
