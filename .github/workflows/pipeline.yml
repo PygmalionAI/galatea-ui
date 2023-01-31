@@ -1,0 +1,39 @@
+name: Pygmalion UI Front End - Build / Quality Control
+
+permissions:
+  contents: read # This is required for actions/checkout
+
+on:
+  workflow_dispatch:   # Allows you to run this workflow manually from the Actions tab
+
+jobs:
+  build:
+    name: Build and Deploy to S3
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+		
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'pnpm'
+
+      - name: Cache Dependencies
+        uses: actions/cache@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+		  
+	  - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+		
+	  - name: Quality Control - Lint
+		run: pnpm run lint
+	  
+	  - name: Quality Control - Style
+		run: pnpm run style
+	  
+	  - name: Quality Control - TypeCheck
+		run: pnpm run typecheck
