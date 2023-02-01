@@ -35,6 +35,7 @@ jobs:
   
   lint:
     name: lint
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Quality Control - Lint
@@ -42,6 +43,7 @@ jobs:
         
   style:
     name: style
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Quality Control - Style
@@ -49,6 +51,7 @@ jobs:
         
   typecheck:
     name: typecheck
+    needs: dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Quality Control - TypeCheck
