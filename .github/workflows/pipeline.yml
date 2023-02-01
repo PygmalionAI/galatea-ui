@@ -22,9 +22,8 @@ jobs:
 
       - name: check path
         run:
-          cd ..
-          pwd
           ls
+          pwd
 
       - name: Install Dependencies - Composite Action
         uses: ./.github/actions/install-node-pnmp
