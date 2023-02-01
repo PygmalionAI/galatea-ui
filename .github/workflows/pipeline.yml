@@ -6,8 +6,8 @@ permissions:
 on:
   workflow_dispatch:   # Allows you to run this workflow manually from the Actions tab
 
-jobs:
-  build:
+jobs:       
+  dependencies:
     name: Pipeline
     runs-on: ubuntu-latest
     steps:
@@ -23,7 +23,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.4.0'
-          cache: 'pnpm'
 
       - name: Cache Dependencies
         uses: actions/cache@v3
@@ -33,12 +32,24 @@ jobs:
 
       - name: Install Dependencies
         run: pnpm install --frozen-lockfile
-      
+  
+  lint:
+    name: lint
+    runs-on: ubuntu-latest
+    steps:
       - name: Quality Control - Lint
         run: pnpm run lint
-      
+        
+  style:
+    name: style
+    runs-on: ubuntu-latest
+    steps:
       - name: Quality Control - Style
         run: pnpm run style
-      
+        
+  typecheck:
+    name: typecheck
+    runs-on: ubuntu-latest
+    steps:
       - name: Quality Control - TypeCheck
         run: pnpm run typecheck
