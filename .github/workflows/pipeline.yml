@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies - Composite Action
-        uses: "../actions/checkout-and-install-node-pnmp.yml"
+        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -41,7 +41,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Install Dependencies - Composite Action
-        uses: "../actions/checkout-and-install-node-pnmp.yml"
+        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
+        
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -62,7 +63,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Install Dependencies - Composite Action
-        uses: "../actions/checkout-and-install-node-pnmp.yml"
+        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -83,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:    
       - name: Install Dependencies - Composite Action
-        uses: "../actions/checkout-and-install-node-pnmp.yml"
+        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
