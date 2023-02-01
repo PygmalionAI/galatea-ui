@@ -22,8 +22,8 @@ jobs:
 
       - name: check path
         run:
-          cd .. \
-          pwd \
+          cd ..
+          pwd
           ls
 
       - name: Install Dependencies - Composite Action
