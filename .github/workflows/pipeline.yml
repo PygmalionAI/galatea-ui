@@ -17,8 +17,11 @@ jobs:
     name: Install Dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
+        uses: ./.github/actions/install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -40,9 +43,11 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
-        
+        uses: ./.github/actions/install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -62,8 +67,11 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:    
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
+        uses: ./.github/actions/install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -82,9 +90,12 @@ jobs:
     name: TypeCheck
     needs: dependencies
     runs-on: ubuntu-latest
-    steps:    
+    steps: 
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/checkout-and-install-node-pnmp.yml
+        uses: ./.github/actions/install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}

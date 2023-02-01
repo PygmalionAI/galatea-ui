@@ -1,3 +1,5 @@
+# note - we cannot include checkout here, since it needs the code checked out already to access the 'actions' folder
+
 name: 'Install Dependencies'
 description: 'Checkout Repo / Install Node & PNPM'
 inputs:
@@ -8,9 +10,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v3
-
     - name: Install Performant Node Package Manager (NPM)
       uses: pnpm/action-setup@v2
       with:
