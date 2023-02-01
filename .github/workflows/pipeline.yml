@@ -27,6 +27,7 @@ jobs:
           pnpm-version: ${{  env.pnpm-version  }}
 
       - name: Get Previously Cache Dependencies
+        # cache is automatically saved after this job completes. jobs depending on this one will get the latest cached files
         id: cache-step
         uses: actions/cache@v3
         with:
@@ -35,7 +36,6 @@ jobs:
 
       - name: Install Dependencies (unless restored from cache)
         if: steps.cache-step.outputs.cache-hit != 'true'
-        # cache is automatically saved after the job runs. jobs depending on this one will get the latest cache
         run: pnpm install --frozen-lockfile
         
   lint:
@@ -52,12 +52,8 @@ jobs:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
 
-      - name: Restore Cache
-        uses: actions/cache/restore@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          fail-on-cache-miss: true
+      - name: Restore Cache - Composite Action
+        uses: ./.github/actions/restore-pnpm-cache
 
       - name: Quality Control - Lint
         run: pnpm run lint
@@ -76,12 +72,8 @@ jobs:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
 
-      - name: Restore Cache
-        uses: actions/cache/restore@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          fail-on-cache-miss: true
+      - name: Restore Cache - Composite Action
+        uses: ./.github/actions/restore-pnpm-cache
           
       - name: Quality Control - Style
         run: pnpm run style
@@ -100,12 +92,8 @@ jobs:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
 
-      - name: Restore Cache
-        uses: actions/cache/restore@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-          fail-on-cache-miss: true
+      - name: Restore Cache - Composite Action
+        uses: ./.github/actions/restore-pnpm-cache
           
       - name: Quality Control - TypeCheck
         run: pnpm run typecheck
