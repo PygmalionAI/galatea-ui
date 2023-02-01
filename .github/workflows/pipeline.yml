@@ -22,7 +22,7 @@ jobs:
 
       - name: check path
         run:
-          ls
+          ls && \
           pwd
 
       - name: Install Dependencies - Composite Action
