@@ -22,6 +22,7 @@ jobs:
 
       - name: check path
         run:
+          cd .. && \
           ls && \
           pwd
 
