@@ -20,12 +20,6 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: check path
-        run:
-          cd .. && \
-          ls && \
-          pwd
-
       - name: Install Dependencies - Composite Action
         uses: ./.github/actions/install-node-pnpm
         with:
