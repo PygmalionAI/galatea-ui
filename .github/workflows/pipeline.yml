@@ -63,3 +63,49 @@ jobs:
 
       - name: Quality Control - Lint
         run: pnpm run lint
+        
+  style:
+    name: Style
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+    
+      - name: Install Performant Node Package Manager (NPM)
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{  env.pnpm-version  }}
+    
+      - name: Restore Cache
+        uses: actions/cache/restore@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          fail-on-cache-miss: true
+          
+      - name: Quality Control - Style
+        run: pnpm run style
+          
+    typecheck:
+    name: TypeCheck
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+    
+      - name: Install Performant Node Package Manager (NPM)
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{  env.pnpm-version  }}
+    
+      - name: Restore Cache
+        uses: actions/cache/restore@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          fail-on-cache-miss: true
+          
+      - name: Quality Control - TypeCheck
+        run: pnpm run typecheck
