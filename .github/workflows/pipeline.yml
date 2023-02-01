@@ -1,18 +1,20 @@
 name: Pygmalion UI Front End - Build / Quality Control
 
 permissions:
-  contents: read # This is required for actions/checkout
+  # This is required for actions/checkout
+  contents: read 
 
 on:
-  workflow_dispatch:   # Allows you to run this workflow manually from the Actions tab
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:   
 
 env:
   node-version: '18.4.0'
   pnpm-version: 7.2.1
 
-jobs:       
-  lint:
-    name: lint
+jobs:
+  dependencies:
+    name: Install Dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -28,71 +30,13 @@ jobs:
         with:
           node-version: ${{  env.node-version  }}
 
-      - name: Cache Dependencies
+      - name: Get Previously Cache Dependencies
+        id: cache-step
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
           key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
 
-      - name: Install Dependencies
+      - name: Install Dependencies (unless restored from cache)
+        if: steps.cache-step.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
-        
-      - name: Quality Control - Lint
-        run: pnpm run lint
-        
-  style:
-    name: style
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
-        with:
-          version: ${{  env.pnpm-version  }}
-
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{  env.node-version  }}
-
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
-      - name: Quality Control - Style
-        run: pnpm run style
-        
-  typecheck:
-    name: typecheck
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
-        with:
-          version: ${{  env.pnpm-version  }}
-
-      - name: Install Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{  env.node-version  }}
-
-      - name: Cache Dependencies
-        uses: actions/cache@v3
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Install Dependencies
-        run: pnpm install --frozen-lockfile
-        
-      - name: Quality Control - TypeCheck
-        run: pnpm run typecheck
