@@ -46,6 +46,11 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Install Performant Node Package Manager (NPM)
+        uses: pnpm/action-setup@v2
+        with:
+          version: ${{  env.pnpm-version  }}
+    
       - name: Restore Cache
         uses: actions/cache/restore@v3
         with:
