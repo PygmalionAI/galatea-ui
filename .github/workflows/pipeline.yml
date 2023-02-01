@@ -40,7 +40,7 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Install Dependencies - Composite Action"
+      - name: Install Dependencies - Composite Action
         uses: "../actions/checkout-and-install-node-pnmp.yml"
         with:
           node-version: ${{  env.node-version  }}
