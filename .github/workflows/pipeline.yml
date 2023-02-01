@@ -40,3 +40,18 @@ jobs:
       - name: Install Dependencies (unless restored from cache)
         if: steps.cache-step.outputs.cache-hit != 'true'
         run: pnpm install --frozen-lockfile
+        
+  lint:
+    name: Lint
+    needs: dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Restore Cache
+        uses: actions/cache/restore@v3
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/pnpm-lock.yaml') }}
+          fail-on-cache-miss: true
+
+      - name: Quality Control - Lint
+        run: pnpm run lint
