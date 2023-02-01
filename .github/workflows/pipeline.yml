@@ -17,18 +17,11 @@ jobs:
     name: Install Dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
-        with:
-          version: ${{  env.pnpm-version  }}
-
-      - name: Install Node
-        uses: actions/setup-node@v3
+      - name: Install Dependencies - Composite Action
+        uses: ../actions/checkout-and-install-node-pnmp.yml
         with:
           node-version: ${{  env.node-version  }}
+          pnpm-version: ${{  env.pnpm-version  }}
 
       - name: Get Previously Cache Dependencies
         id: cache-step
@@ -39,6 +32,7 @@ jobs:
 
       - name: Install Dependencies (unless restored from cache)
         if: steps.cache-step.outputs.cache-hit != 'true'
+        # cache is automatically saved after the job runs. jobs depending on this one will get the latest cache
         run: pnpm install --frozen-lockfile
         
   lint:
@@ -46,14 +40,12 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-    
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
+      - name: Install Dependencies - Composite Action
+        uses: ../actions/checkout-and-install-node-pnmp.yml
         with:
-          version: ${{  env.pnpm-version  }}
-    
+          node-version: ${{  env.node-version  }}
+          pnpm-version: ${{  env.pnpm-version  }}
+
       - name: Restore Cache
         uses: actions/cache/restore@v3
         with:
@@ -68,15 +60,13 @@ jobs:
     name: Style
     needs: dependencies
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-    
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
+    steps:    
+      - name: Install Dependencies - Composite Action
+        uses: ../actions/checkout-and-install-node-pnmp.yml
         with:
-          version: ${{  env.pnpm-version  }}
-    
+          node-version: ${{  env.node-version  }}
+          pnpm-version: ${{  env.pnpm-version  }}
+
       - name: Restore Cache
         uses: actions/cache/restore@v3
         with:
@@ -91,15 +81,13 @@ jobs:
     name: TypeCheck
     needs: dependencies
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v3
-    
-      - name: Install Performant Node Package Manager (NPM)
-        uses: pnpm/action-setup@v2
+    steps:    
+      - name: Install Dependencies - Composite Action
+        uses: ../actions/checkout-and-install-node-pnmp.yml
         with:
-          version: ${{  env.pnpm-version  }}
-    
+          node-version: ${{  env.node-version  }}
+          pnpm-version: ${{  env.pnpm-version  }}
+
       - name: Restore Cache
         uses: actions/cache/restore@v3
         with:
