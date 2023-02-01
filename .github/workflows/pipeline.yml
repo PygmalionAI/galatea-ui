@@ -27,7 +27,7 @@ jobs:
           pwd
 
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/install-node-pnmp
+        uses: ./.github/actions/install-node-pnpm
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -53,7 +53,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/install-node-pnmp
+        uses: ./.github/actions/install-node-pnpm
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -77,7 +77,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/install-node-pnmp
+        uses: ./.github/actions/install-node-pnpm
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
@@ -101,7 +101,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Install Dependencies - Composite Action
-        uses: ./.github/actions/install-node-pnmp
+        uses: ./.github/actions/install-node-pnpm
         with:
           node-version: ${{  env.node-version  }}
           pnpm-version: ${{  env.pnpm-version  }}
