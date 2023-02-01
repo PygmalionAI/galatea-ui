@@ -46,6 +46,9 @@ jobs:
     needs: dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+    
       - name: Install Performant Node Package Manager (NPM)
         uses: pnpm/action-setup@v2
         with:
