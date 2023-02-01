@@ -87,7 +87,7 @@ jobs:
       - name: Quality Control - Style
         run: pnpm run style
           
-    typecheck:
+  typecheck:
     name: TypeCheck
     needs: dependencies
     runs-on: ubuntu-latest
