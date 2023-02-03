@@ -12,8 +12,8 @@ const Account = () => {
                 <div class="my-4 border-b border-white/5 mb-2" />
                 <TextInput fieldName="" placeholder="ID" class="mb-2" />
                 <TextInput fieldName="" placeholder="Password" type="password" class="mb-4"/>
-                <div class="flex">
-                    <Button class="mr-2">Continue</Button>
+                <div class="flex gap-2">
+                    <Button>Continue</Button>
                     <A href="/account/register">
                         <Button schema="secondary">Register</Button>
                     </A>

@@ -1,13 +1,14 @@
 import { Component, Show } from "solid-js";
 import { ThumbsUp, ThumbsDown } from "lucide-solid";
 import MessageProps from "../../../models/Message";
+import showdown from "showdown";
 import "./Message.css";
-import { mdConvert } from "../../../lib/convertMark";
+const showdownConverter = new showdown.Converter();
 
 /** An individual message. */
 
 const Message: Component<MessageProps> = (props) => (
-  <span class={props.speaker.isHuman ? "flex gap-4 flex-row-reverse" : "flex gap-4"}>
+  <span class="flex gap-4">
     <img
       src={props.speaker.avatarUrl}
       class="mt-1 h-12 w-12 rounded-full bg-white"
@@ -15,18 +16,16 @@ const Message: Component<MessageProps> = (props) => (
 
     <div class="flex select-text flex-col">
       <span>
-        
-        {!props.speaker.isHuman && <b class="text-white mr-2">{props.speaker.name}</b>}
+        <b class="text-white mr-2">{props.speaker.name}</b>
         <span class="text-sm text-white/25">
           {new Intl.DateTimeFormat('en-US', {dateStyle: 'short', timeStyle: 'short'}).format(props.timestamp)}
         </span>
-        {props.speaker.isHuman && <b class="text-white ml-2">{props.speaker.name}</b>}
       </span>
       <div class="message-text">
         <div
           // eslint-disable-next-line solid/no-innerhtml
-          class={props.speaker.isHuman ? "float-right": ''}
-          innerHTML={mdConvert(props.utterance)} />
+          innerHTML={showdownConverter.makeHtml(props.utterance)}
+          />
 
       </div>
       <Show when={!props.speaker.isHuman}>

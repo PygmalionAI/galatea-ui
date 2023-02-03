@@ -12,8 +12,8 @@ const Register = () => {
                 <TextInput fieldName="" placeholder="ID" class="mb-2" />
                 <TextInput fieldName="" placeholder="Password" type="password" class="mb-2"/>
                 <TextInput fieldName="" placeholder="Repeat Password" type="password" class="mb-4"/>
-                <div class="flex">
-                    <Button class="mr-2">Continue</Button>
+                <div class="flex gap-2">
+                    <Button>Continue</Button>
                     <Button schema="secondary">Login</Button>
 
                 </div>

@@ -1,5 +1,5 @@
 
-import Login from "./login";
+import Login from "./Login";
 
 const Account = () => {
     // TODO: Account Page
