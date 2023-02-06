@@ -4,6 +4,7 @@
   "description": "The official Pygmalion front-end.",
   "scripts": {
     "start": "NODE_ENV=dev parcel src/index.html",
+    "start:win": "set NODE_ENV=dev && parcel src/index.html",
     "build": "NODE_ENV=production parcel build src/index.html",
     "style": "prettier src --check",
     "style:fix": "prettier src --write",
@@ -37,6 +38,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.4",
     "eslint-plugin-solid": "^0.9.3",
+    "eslint-plugin-tailwindcss": "^3.8.0",
     "parcel": "^2.8.2",
     "postcss": "^8.4.21",
     "prettier": "^2.8.3",
