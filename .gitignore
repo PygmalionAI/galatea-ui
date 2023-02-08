@@ -2,5 +2,4 @@
 /dist
 /node_modules
 .pnpm-debug.log
-package-lock.json
 src/pages/Chat/mocks.tsx

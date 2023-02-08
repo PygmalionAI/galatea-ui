@@ -17,7 +17,7 @@ const GenerationSettings: Component = () => (
             min={16}
             max={512}
             step={4}
-            placeholder={196}
+            value={196}
         />
         <RangeInput 
             label="Temperature"
@@ -25,7 +25,7 @@ const GenerationSettings: Component = () => (
             min={0.1}
             max={2}
             step={0.01}
-            placeholder={0.5}
+            value={0.5}
         />
         <RangeInput 
             label="Top P"
@@ -33,7 +33,7 @@ const GenerationSettings: Component = () => (
             min={0}
             max={1}
             step={0.01}
-            placeholder={0.9}
+            value={0.9}
         />
         <RangeInput 
             label="Top K"
@@ -41,7 +41,7 @@ const GenerationSettings: Component = () => (
             min={0}
             max={100}
             step={1}
-            placeholder={0}
+            value={0}
         />
         <RangeInput 
             label="Typical P"
@@ -49,7 +49,7 @@ const GenerationSettings: Component = () => (
             min={0}
             max={1}
             step={0.01}
-            placeholder={1}
+            value={1}
         />
         <RangeInput 
             label="Repetition Penalty"
@@ -57,7 +57,7 @@ const GenerationSettings: Component = () => (
             min={0}
             max={3}
             step={0.01}
-            placeholder={1.05}
+            value={1.05}
         />
         <RangeInput 
             label="Penalty Alpha"
@@ -65,7 +65,7 @@ const GenerationSettings: Component = () => (
             min={0}
             max={1}
             step={0.05}
-            placeholder={0.6}
+            value={0.6}
         />
 
         <div class="flex justify-end gap-2">

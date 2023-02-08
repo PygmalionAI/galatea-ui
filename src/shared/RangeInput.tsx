@@ -1,23 +1,39 @@
-import { Component, Show } from "solid-js";
+import { Component, Show, createSignal } from "solid-js";
+import type { JSX } from "solid-js";
 
 const RangeInput: Component<{
   label: string;
+  value: number;
   helperText?: string;
   min: number;
   max: number;
   step: number;
-  placeholder?: any;
 }> = (props) => {
+
+  const [value, setValue] = createSignal(props.value);
+  
+  function updateRangeSliders() {
+    Array.from(document.getElementsByTagName('input')).forEach(input => {
+      input.style.backgroundSize = (Number(input.value) - Number(input.min)) * 100 / (Number(input.max) - Number(input.min)) + '% 100%';
+    });
+  }
+
+  const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = (event) => {
+    setValue(Number(event.currentTarget.value));
+    updateRangeSliders();
+  };  
+
+  window.onload = updateRangeSliders;
 
   return (
     <div class="relative pt-1">
       <ul class="w-full">
-        <label for="customRange2" class="form-label block-block">
+        <label class="form-label block-block">
           {props.label}
         </label>
-        <input class="inline-block float-right rounded-lg focusable-field bg-transparent" placeholder={props.placeholder} type="number" min={props.min} max={props.max} step={props.step}/>
+        <input class="inline-block float-right rounded-lg border border-white/5 hover:border-white/20 focusable-field bg-transparent" value={value()} type="number" min={props.min} max={props.max} step={props.step} onInput={onInput} />
       </ul>
-      <Show when={!!props.helperText}>
+      <Show when={props.helperText}>
         <p class="mt-[-0.125rem] pb-2 text-sm text-white/50">
           {props.helperText}
         </p>
@@ -26,21 +42,19 @@ const RangeInput: Component<{
         type="range"
         class="
         form-range
-        h-6
-        w-full
         appearance-none
-        bg-transparent
-        focusable-field
-        !outline-purple-400/50
+        accent-purple-400/50
+        cursor-ew-resize
+        h-1
+        w-full
         rounded-xl
-        p-0
         focus:shadow-none focus:outline-none focus:ring-0
       "
         min={props.min}
         max={props.max}
         step={props.step}
-        placeholder={props.placeholder}
-        id="customRange2"
+        onInput={onInput}
+        value={value()}
       />
     </div>
   );
