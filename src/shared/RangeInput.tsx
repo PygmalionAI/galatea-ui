@@ -1,4 +1,4 @@
-import { Component, Show, createSignal } from "solid-js";
+import { Component, Show, createSignal, createEffect } from "solid-js";
 import type { JSX } from "solid-js";
 
 const RangeInput: Component<{
@@ -23,7 +23,7 @@ const RangeInput: Component<{
     updateRangeSliders();
   };  
 
-  window.onload = updateRangeSliders;
+  createEffect(updateRangeSliders);
 
   return (
     <div class="relative pt-1">
