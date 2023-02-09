@@ -42,12 +42,23 @@
 
   .btn-primary {
     @apply btn-base;
-    @apply bg-purple-600 hover:bg-purple-500 active:bg-purple-400;
+    @apply bg-purple-600 enabled:hover:bg-purple-500 enabled:active:bg-purple-400;
+    @apply disabled:cursor-not-allowed disabled:bg-purple-900 disabled:text-white/25;
   }
 
   .btn-secondary {
     @apply btn-base;
     @apply bg-stone-600 hover:bg-stone-500 active:bg-stone-400;
+  }
+
+  /**
+   * Cards.
+   */
+  .focusable-card {
+    @apply _focusable-base;
+    @apply max-h-96 max-w-[10rem];
+    @apply rounded-md shadow-md;
+    @apply bg-background-lighter hover:bg-zinc-900 active:bg-zinc-800;
   }
 
   /**
