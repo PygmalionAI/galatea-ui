@@ -1,6 +1,5 @@
-import { Component, Show, createSignal, createEffect } from "solid-js";
+import { Component, Show, createSignal } from "solid-js";
 import type { JSX } from "solid-js";
-import { update } from "lodash";
 
 const RangeInput: Component<{
   label: string;
@@ -23,8 +22,8 @@ const RangeInput: Component<{
     setValue(Number(event.currentTarget.value));
     updateRangeSliders();
   };  
-  
-  createEffect(updateRangeSliders);
+
+  window.onload = updateRangeSliders;
 
   return (
     <div class="relative pt-1">

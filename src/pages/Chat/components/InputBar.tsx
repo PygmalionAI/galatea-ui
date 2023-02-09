@@ -12,7 +12,7 @@ const IconButton: Component<{ children: JSX.Element }> = (props) => (
 );
 
 /** Bar containing the message text input and some attached buttons. */
-const InputBar: Component = () => (
+const InputBar = () => (
   <div class="flex justify-center pb-4 max-sm:pb-0">
     <input
       type="text"

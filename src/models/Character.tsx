@@ -1,13 +1,9 @@
 interface Character {
-  id: string;
-
   name: string;
+  avatarUrl?: string;
   description: string;
-  avatarId?: string;
-  visibility: "public" | "private" | "unlisted";
-
-  createdAt: string;
-  updatedAt: string;
+  greeting: string;
+  persona: string;
+  exampleConversations: string;
+  visibility: "public" | "unlisted" | "private";
 }
-
-export default Character;

@@ -1,7 +1,14 @@
-import { MessageCircle, Settings, User, Users } from "lucide-solid";
-import { Component } from "solid-js";
-
+import { Component, JSX } from "solid-js";
 import { A } from "@solidjs/router";
+import {
+  ChevronLeft,
+  Home,
+  Menu,
+  MessageCircle,
+  Settings,
+  Users,
+  User,
+} from "lucide-solid";
 
 const NavBar: Component = () => (
   <span class="flex justify-between gap-4 bg-background-lighter px-8 py-5 shadow-xl max-sm:p-3">

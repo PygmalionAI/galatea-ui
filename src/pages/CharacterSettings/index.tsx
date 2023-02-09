@@ -4,7 +4,6 @@ import { Save, X } from "lucide-solid";
 import Button from "../../shared/Button";
 import TextInput from "../../shared/TextInput";
 import RadioGroup, { RadioOption } from "../../shared/RadioGroup";
-import PageHeader from "../../shared/PageHeader";
 
 const visibilityOptions: RadioOption[] = [
   {
@@ -39,10 +38,9 @@ const visibilityOptions: RadioOption[] = [
 
 const CharacterSettings: Component = () => (
   <>
-    <PageHeader
-      title="Character Settings"
-      subtitle="Configure BOT's character."
-    />
+    <h1 class="text-4xl">Character Settings</h1>
+    <p class="text-white/50">Configure BOT's character.</p>
+    <div class="my-4 border-b border-white/5" />
 
     <div class="flex flex-col gap-8">
       <TextInput
