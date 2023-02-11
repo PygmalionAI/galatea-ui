@@ -11,7 +11,7 @@ const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 
 const App: Component = () => (
-  <div class="flex h-[100vh] flex-col justify-between">
+  <div class="flex h-screen flex-col justify-between scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-purple-900">
     <NavBar />
     <div class="w-full grow overflow-y-scroll px-8 pt-8 max-sm:px-3">
       <div class="mx-auto h-full max-w-4xl">
