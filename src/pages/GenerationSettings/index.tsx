@@ -3,12 +3,23 @@ import { Save, X } from "lucide-solid";
 
 import Button from "../../shared/Button";
 import RangeInput from "../../shared/RangeInput";
+import Dropdown from "../../shared/Dropdown";
 
 const GenerationSettings: Component = () => (
   <>
     <h1 class="text-4xl">Generation Settings Settings</h1>
     <p class="text-white/50">Some settings might not show up depending on which inference backend is being used.</p>
     <div class="my-4 border-b border-white/5" />
+
+    <Dropdown label="Preset">
+        <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Classic-Pygmalion-6b</a>
+            <a class="dropdown-item" href="#">Classic-Pygmalion-2.7b</a>
+            <a class="dropdown-item" href="#">Calibrated-Pygmalion-6b</a>
+            <a class="dropdown-item" href="#">GPU-Pygmalion-6b</a>
+            <a class="dropdown-item" href="#">DragonSlayer-Pygmalion-2.7b</a>
+        </div>
+    </Dropdown>
 
     <div class="flex flex-col gap-8">
         <RangeInput 

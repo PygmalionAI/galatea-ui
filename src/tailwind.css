@@ -87,4 +87,17 @@
     border: none;
     background: transparent;
   }
+
+  /**
+   * Dropdowns.
+   */
+
+  .dropdown-menu {
+    @apply flex flex-col bg-stone-600  drop-shadow-md rounded-md;
+  }
+
+  .dropdown-item {
+    @apply px-5 py-3 hover:bg-stone-500;
+  }
+
 }
