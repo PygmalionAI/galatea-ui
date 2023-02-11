@@ -1,4 +1,4 @@
-import { createElement as h, createSignal, Component, Show } from 'solid-js'
+import { createSignal, Component, Show } from 'solid-js'
 //Component Properties
 interface Props {
   messageHeader: string;
