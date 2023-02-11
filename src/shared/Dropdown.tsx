@@ -1,15 +1,21 @@
 import { Component, JSX, Show, createSignal } from "solid-js";
 
+import { ChevronDown } from "lucide-solid";
 import Button from "./Button";
 
-import { ChevronDown } from "lucide-solid";
 
-const Dropdown: Component<{ children: JSX.Element, label: string }> = (props) => {
+const Dropdown: Component<{ children: JSX.Element; label: string }> = (
+  props
+) => {
   const [open, setOpen] = createSignal(false);
 
-  return(
+  return (
     <div class="inline-block">
-      <Button onClick={() => {setOpen(!open())}}>
+      <Button
+        onClick={() => {
+          setOpen(!open());
+        }}
+      >
         <ChevronDown />
         {props.label}
       </Button>
