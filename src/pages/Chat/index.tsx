@@ -6,6 +6,8 @@ import InputBar from "./components/InputBar";
 import Message from "./components/Message";
 import { mockMessages } from "./mocks";
 
+import "./index.css";
+
 const ChatPage: Component = () => (
   <RequiresAuth>
     <div
@@ -16,7 +18,7 @@ const ChatPage: Component = () => (
       class="flex h-full flex-col-reverse"
     >
       <InputBar />
-      <div class="flex flex-col-reverse overflow-y-scroll">
+      <div class="chatbox flex flex-col-reverse overflow-y-scroll">
         <div class="flex flex-col gap-6 pt-4 pb-8">
           <For each={mockMessages}>{(message) => <Message {...message} />}</For>
         </div>
