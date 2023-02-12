@@ -1,15 +1,53 @@
-import { Component, lazy } from "solid-js";
-
+import { Component, lazy, JSX } from "solid-js";
 import { Route, Routes } from "@solidjs/router";
 
 import NavBar from "./shared/NavBar";
 
-const ChatPage = lazy(() => import("./pages/Chat"));
-const CharacterSettings = lazy(() => import("./pages/CharacterSettings"));
-const Home = lazy(() => import("./pages/Home"));
-const Login = lazy(() => import("./pages/Login"));
+const ChatPage = lazy(() => 
+  import("./pages/Chat").catch((error: Error) => {
+    console.error(error);
+    return (
+      <div class="text-red-500">
+        An error occurred while loading the chat page.
+      </div>
+    );
+  })
+);
 
-const App: Component = () => (
+const CharacterSettings = lazy(() => 
+  import("./pages/CharacterSettings").catch((error: Error) => {
+    console.error(error);
+    return (
+      <div class="text-red-500">
+        An error occurred while loading the character settings page.
+      </div>
+    );
+  })
+);
+
+const Home = lazy(() => 
+  import("./pages/Home").catch((error: Error) => {
+    console.error(error);
+    return (
+      <div class="text-red-500">
+        An error occurred while loading the home page.
+      </div>
+    );
+  })
+);
+
+const Login = lazy(() => 
+  import("./pages/Login").catch((error: Error) => {
+    console.error(error);
+    return (
+      <div class="text-red-500">
+        An error occurred while loading the login page.
+      </div>
+    );
+  })
+);
+
+const App: Component<{}> = (props) => (
   <div class="flex h-[100vh] flex-col justify-between">
     <NavBar />
     <div class="w-full grow overflow-y-scroll px-8 pt-8 max-sm:px-3">
