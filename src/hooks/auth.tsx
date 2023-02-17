@@ -17,7 +17,7 @@ const useAuth = (): {
    * decoded version of the JWT for use elsewhere.
    */
   const login = (jwt: string) => {
-    updateAppStore("auth", { jwt, user: (parseJWT(jwt) as User) || undefined });
+    updateAppStore("auth", { jwt, user: parseJWT(jwt) as User });
     Cookies.set("jwt", jwt, {
       sameSite: "strict",
       expires: 7,
