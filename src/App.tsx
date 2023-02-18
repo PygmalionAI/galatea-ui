@@ -6,6 +6,7 @@ import NavBar from "./shared/NavBar";
 
 const ChatPage = lazy(() => import("./pages/Chat"));
 const CharacterSettings = lazy(() => import("./pages/CharacterSettings"));
+const GenerationSettings = lazy(() => import("./pages/GenerationSettings"));
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 
@@ -17,6 +18,7 @@ const App: Component = () => (
         <Routes>
           <Route path="/chat" component={ChatPage} />
           <Route path="/character" component={CharacterSettings} />
+          <Route path="/generation-settings" component={GenerationSettings} />
           <Route path="/" component={Home} />
           <Route path="/account/login" component={Login} />
         </Routes>
