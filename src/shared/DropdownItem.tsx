@@ -1,4 +1,4 @@
-import { Component, JSX, createSignal } from "solid-js";
+import { Component, JSX } from "solid-js";
 
 const DropdownItem: Component<{
     children: JSX.Element;
