@@ -5,13 +5,13 @@ const DropdownItem: Component<{
   reference?: any;
   onClick?: JSX.EventHandler<HTMLAnchorElement, MouseEvent>;
 }> = (props) => (
-    <a
-      class="px-5 py-3 hover:bg-stone-500"
-      href={props.reference}
-      onClick={props.onClick}
-    >
-      {props.children}
-    </a>
-  );
+  <a
+    class="px-5 py-3 hover:bg-stone-500"
+    href={props.reference}
+    onClick={props.onClick}
+  >
+    {props.children}
+  </a>
+);
 
 export default DropdownItem;

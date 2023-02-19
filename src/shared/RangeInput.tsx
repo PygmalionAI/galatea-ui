@@ -13,10 +13,10 @@ const RangeInput: Component<{
 
   function updateRangeSliders() {
     Array.from(document.getElementsByTagName("input")).forEach((input) => {
-      input.style.backgroundSize =
-        `${((Number(input.value) - Number(input.min)) * 100) /
-          (Number(input.max) - Number(input.min)) 
-        }% 100%`;
+      input.style.backgroundSize = `${
+        ((Number(input.value) - Number(input.min)) * 100) /
+        (Number(input.max) - Number(input.min))
+      }% 100%`;
     });
   }
 

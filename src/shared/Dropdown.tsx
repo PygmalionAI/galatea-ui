@@ -15,14 +15,19 @@ const Dropdown: Component<{ children: JSX.Element; label: string }> = (
     placement: "bottom-start",
   });
 
-  window.onclick = function(e) {
+  window.onclick = function (e) {
     const dropdownButton = (dropdown() as unknown as HTMLElement).children[0];
-    const dropdownButtonChevron = (dropdown() as unknown as HTMLElement).children[0].children[0];
-    
-    if(open() && e.target !== dropdownButton && e.target !== dropdownButtonChevron) {
-      setOpen(!open())
+    const dropdownButtonChevron = (dropdown() as unknown as HTMLElement)
+      .children[0].children[0];
+
+    if (
+      open() &&
+      e.target !== dropdownButton &&
+      e.target !== dropdownButtonChevron
+    ) {
+      setOpen(!open());
     }
-  }
+  };
 
   return (
     <>
@@ -38,7 +43,8 @@ const Dropdown: Component<{ children: JSX.Element; label: string }> = (
       </div>
 
       <div
-        ref={setDropdownMenu} id="dropdownMenu"
+        ref={setDropdownMenu}
+        id="dropdownMenu"
         class={`${
           open() ? "visible" : "invisible"
         } z-10 flex flex-col rounded-md bg-stone-600 drop-shadow-md`}
