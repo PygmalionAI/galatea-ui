@@ -25,6 +25,12 @@
     @apply bg-purple-500;
   }
 
+  /** For Firefox. */
+  .scrollbar { 
+    scrollbar-color: rgb(152 64 160) transparent;
+    scrollbar-width: thin;
+  }
+
   /**
    * Focus/accessibility-related utilities.
    */
