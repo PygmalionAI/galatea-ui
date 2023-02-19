@@ -9,29 +9,37 @@ const RangeInput: Component<{
   max: number;
   step: number;
 }> = (props) => {
-
   const [value, setValue] = createSignal(props.value);
-  
+
   function updateRangeSliders() {
-    Array.from(document.getElementsByTagName('input')).forEach(input => {
-      input.style.backgroundSize = (Number(input.value) - Number(input.min)) * 100 / (Number(input.max) - Number(input.min)) + '% 100%';
+    Array.from(document.getElementsByTagName("input")).forEach((input) => {
+      input.style.backgroundSize =
+        `${((Number(input.value) - Number(input.min)) * 100) /
+          (Number(input.max) - Number(input.min)) 
+        }% 100%`;
     });
   }
 
   const onInput: JSX.EventHandler<HTMLInputElement, InputEvent> = (event) => {
     setValue(Number(event.currentTarget.value));
     updateRangeSliders();
-  };  
+  };
 
   createEffect(updateRangeSliders);
 
   return (
     <div class="relative pt-1">
       <ul class="w-full">
-        <label class="form-label block-block">
-          {props.label}
-        </label>
-        <input class="inline-block float-right rounded-lg border border-white/5 hover:border-white/20 focusable-field bg-transparent" value={value()} type="number" min={props.min} max={props.max} step={props.step} onInput={onInput} />
+        <label class="form-label block-block">{props.label}</label>
+        <input
+          class="focusable-field float-right inline-block rounded-lg border border-white/5 bg-transparent hover:border-white/20"
+          value={value()}
+          type="number"
+          min={props.min}
+          max={props.max}
+          step={props.step}
+          onInput={onInput}
+        />
       </ul>
       <Show when={props.helperText}>
         <p class="mt-[-0.125rem] pb-2 text-sm text-white/50">
@@ -42,12 +50,12 @@ const RangeInput: Component<{
         type="range"
         class="
         form-range
-        appearance-none
-        accent-purple-400/50
-        cursor-ew-resize
         h-1
         w-full
+        cursor-ew-resize
+        appearance-none
         rounded-xl
+        accent-purple-400/50
         focus:shadow-none focus:outline-none focus:ring-0
       "
         min={props.min}
