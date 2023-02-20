@@ -6,6 +6,8 @@ import InputBar from "./components/InputBar";
 import Message from "./components/Message";
 import { mockMessages } from "./mocks";
 
+import "./index.css";
+
 const ChatPage: Component = () => (
   <RequiresAuth>
     <div

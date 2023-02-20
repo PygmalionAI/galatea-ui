@@ -1,5 +1,7 @@
+/.vscode
+
 /.parcel-cache
 /dist
 /node_modules
 .pnpm-debug.log
-src/pages/Chat/mocks.tsx
+.env

@@ -4,8 +4,12 @@ import { render } from "solid-js/web";
 import { Router } from "@solidjs/router";
 import { QueryClient, QueryClientProvider } from "@tanstack/solid-query";
 
+import bootstrapMocks from "./api/_mocks";
+
 import App from "./App";
 import { AppStoreProvider } from "./providers/AppStoreProvider";
+
+bootstrapMocks();
 
 const queryClient = new QueryClient();
 
