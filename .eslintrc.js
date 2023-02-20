@@ -11,7 +11,14 @@ module.exports = {
     "plugin:tailwindcss/recommended",
     "prettier",
   ],
-  overrides: [],
+  overrides: [
+    {
+      files: ["src/api/_mocks/**/*.ts"],
+      rules: {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
