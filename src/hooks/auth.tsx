@@ -1,5 +1,6 @@
 import Cookies from "js-cookie";
 import { parseJWT } from "../api";
+import User from "../models/User";
 import { useAppStore } from "../providers/AppStoreProvider";
 
 /** Hook to interact with authentication data within the global app store. */
@@ -16,7 +17,7 @@ const useAuth = (): {
    * decoded version of the JWT for use elsewhere.
    */
   const login = (jwt: string) => {
-    updateAppStore("auth", { jwt, user: parseJWT(jwt) });
+    updateAppStore("auth", { jwt, user: parseJWT(jwt) as User });
     Cookies.set("jwt", jwt, {
       sameSite: "strict",
       expires: 7,

@@ -43,7 +43,7 @@ const HomePage: Component = () => {
         <CharacterGroup
           title="New Characters"
           description="Recent creations from the community."
-          characters={query.data}
+          characters={query.data || []}
         />
       </Suspense>
     </RequiresAuth>
