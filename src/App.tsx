@@ -6,17 +6,19 @@ import NavBar from "./shared/NavBar";
 
 const ChatPage = lazy(() => import("./pages/Chat"));
 const CharacterSettings = lazy(() => import("./pages/CharacterSettings"));
+const GenerationSettings = lazy(() => import("./pages/GenerationSettings"));
 const Home = lazy(() => import("./pages/Home"));
 const Login = lazy(() => import("./pages/Login"));
 
 const App: Component = () => (
-  <div class="flex h-[100vh] flex-col justify-between">
+  <div class="scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-purple-900 scrollbar flex h-screen flex-col justify-between overflow-auto">
     <NavBar />
     <div class="w-full grow overflow-y-scroll px-8 pt-8 max-sm:px-3">
       <div class="mx-auto h-full max-w-4xl">
         <Routes>
           <Route path="/chat" component={ChatPage} />
           <Route path="/character" component={CharacterSettings} />
+          <Route path="/generation-settings" component={GenerationSettings} />
           <Route path="/" component={Home} />
           <Route path="/account/login" component={Login} />
         </Routes>
