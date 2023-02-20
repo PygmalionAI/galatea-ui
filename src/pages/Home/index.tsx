@@ -12,7 +12,7 @@ import RequiresAuth from "../../shared/RequiresAuth";
 const CharacterGroup: Component<{
   title: string;
   description: string;
-  characters: Character[];
+  characters?: Character[];
 }> = (props) => (
   <>
     <PageHeader title={props.title} subtitle={props.description} />
