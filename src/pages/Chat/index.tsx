@@ -18,7 +18,7 @@ const ChatPage: Component = () => (
       class="flex h-full flex-col-reverse"
     >
       <InputBar />
-      <div class="chatbox flex flex-col-reverse overflow-y-scroll">
+      <div class="flex flex-col-reverse overflow-y-scroll">
         <div class="flex flex-col gap-6 pt-4 pb-8">
           <For each={mockMessages}>{(message) => <Message {...message} />}</For>
         </div>
