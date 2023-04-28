@@ -18,6 +18,11 @@ The important parts of the stack are:
 
 ### Quick start
 
+Easy self-hosted method: [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FPygmalionAI%2Fgalatea-ui&demo-title=GalateaUI&demo-description=A%20finished%20product%20deployment%20for%20you%20to%20try!&demo-url=https%3A%2F%2Fpymaglion.vercel.app%2F&demo-image=https%3A%2F%2Fs3.amazonaws.com%2Fmoonup%2Fproduction%2Fuploads%2F1674800669496-63a218623c003e40931a6cff.png)
+OR
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/PygmalionAI/galatea-ui)
+
+Otherwise, you can create your own instance yourself.
 If you have Node and `pnpm` installed and working, you can start the development server with:
 
 ```bash
